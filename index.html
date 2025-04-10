@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E Portfolio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script
+      src="https://kit.fontawesome.com/a4d3cff651.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/app.js" defer></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "6uFp4wpDnAEpqtxyz",
+      });
+   })();
+</script>
+  </head>
+  <body onmousemove="moveBackground(event)">
+    <section id="landing-page">
+      <nav>
+        <figure class="nav__logo--wrapper">
+          <img class="nav__logo" src="assets/personal-logo-black.png" alt="" />
+        </figure>
+        <ul class="nav__link--list">
+          <li class="nav__link">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black" onclick="toggleModal()"
+              >About</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Projects</a
+            >
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a href="#" class="nav__link--anchor"
+              ><i class="fa-solid fa-circle-half-stroke"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hey</h1>
+          <h1 class="title orange">I'm Max.</h1>
+          <p class="header__para">
+            I'm a <b class="orange">Frontend Software Engineer</b> with a strong
+            passion for building web applications with great user experiences.
+            <br />
+            Here's a bit more <b class="orange click" onclick="toggleModal()">about me.</b>
+          </p>
+          <div class="social__list">
+            <a href="" target="_blank" class="social__link click"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://github.com/maxmw02"
+              target="_blank"
+              class="social__link click"
+              ><i class="fa-brands fa-github-alt"></i
+            ></a>
+            <a href="" target="_blank" class="social__link click"
+              ><i class="fa-solid fa-file"></i
+            ></a>
+          </div>
+        </div>
+      </header>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fa-solid fa-envelope"></i>
+        </button>
+      </a>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__about--title">
+            Here's a bit about me
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software Engineer
+          </h4>
+          <p class="modal__para">
+            I'm a 25 year-old American
+            <span class="orange">frontend software engineer</span> with a strong
+            passion for developing websites with great
+            <span class="orange">user experiences.</span><br />I currently work
+            on extremely difficult engineering problems and learn from a team
+            consisting of some of the most
+            <span class="orange">talented</span> and
+            <span class="orange">experienced</span> software engineers everday.
+          </p>
+          <div class="modal__languages">
+            <figure class="modal__language">
+              <img class="modal__language--img" src="assets/html.png" alt="" />
+              <div class="language__name">HTML</div>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/600px-Official_CSS_Logo.svg.png"
+                alt=""
+              />
+              <div class="language__name">CSS</div>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/600px-JavaScript-logo.png"
+                alt=""
+              />
+              <div class="language__name">JAVA</div>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png"
+                alt=""
+              />
+              <div class="language__name">REACT</div>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+           <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h4 class="modal__sub-title modal__sub-title--contact">I'm currently open to new opportunities.</h4>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input class="input" name="user_name" type="text" required></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input class="input" name="user_email" type="email" required></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea class="input" name="message" type="text" required></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">Send it my way</button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! Looking forward to speaking to you soon.
+          </div>
+        </div>
+      </div>
+      <img src="./assets/semi circle.svg" class="shape shape--0">
+      <img src="./assets/circle.svg" class="shape shape--1">
+      <img src="./assets/squiggly.svg" class="shape shape--2">
+      <img src="./assets/circle.svg" class="shape shape--3">
+      <img src="./assets/triangle.svg" class="shape shape--4">
+      <img src="./assets/circle.svg" class="shape shape--5">
+      <img src="./assets/squiggly.svg" class="shape shape--6">
+      <img src="./assets/circle.svg" class="shape shape--7">
+      <img src="./assets/semi circle.svg" class="shape shape--8">
+    </section>
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="orange">projects.</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="assets/Library.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    Online Library Project
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestiae, esse. Saepe, fugit. Veritatis animi similique
+                    rerum optio doloremque, temporibus debitis.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/maxmw02/Library-Project"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-brands fa-github-alt"></i
+                    ></a>
+                    <a
+                      href="https://maxmw02.github.io/Library-Project/"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-solid fa-link"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="assets/Library.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    Online Library Project
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestiae, esse. Saepe, fugit. Veritatis animi similique
+                    rerum optio doloremque, temporibus debitis.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/maxmw02/Library-Project"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-brands fa-github-alt"></i
+                    ></a>
+                    <a
+                      href="https://maxmw02.github.io/Library-Project/"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-solid fa-link"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="assets/Library.png" class="project__img" alt="" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    Online Library Project
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestiae, esse. Saepe, fugit. Veritatis animi similique
+                    rerum optio doloremque, temporibus debitis.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/maxmw02/Library-Project"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-brands fa-github-alt"></i
+                    ></a>
+                    <a
+                      href="https://maxmw02.github.io/Library-Project/"
+                      target="_blank"
+                      class="project__description--link"
+                      ><i class="fa-solid fa-link"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer__container">
+        <div class="row footer__row">
+          <figure class="footer__logo--wrapper">
+            <img
+              src="assets/personal-logo-black.png"
+              class="footer__logo--img"
+              alt=""
+            />
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href=""
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >Github</a
+            >
+            <a
+              href=""
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >Linkedin</a
+            >
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white" onclick="toggleModal()"
+              >Contact</a
+            >
+            <a
+              href=""
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >Resume</a
+            >
+          </div>
+          <div class="footer__copyright">
+            Copyright © 2025 Max Marsala-Williams
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
