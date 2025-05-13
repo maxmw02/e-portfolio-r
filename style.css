@@ -520,6 +520,7 @@ PROJECTS
 }
 
 .project__wrapper {
+  display: flex;
   position: relative;
   border-radius: 20px;
   box-shadow: 0 20px 80px 0;
